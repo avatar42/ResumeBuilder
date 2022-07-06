@@ -1,0 +1,20 @@
+{
+  "applications": ["resume"],
+  "changelogDate": "20220705175713",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "resume_respon_type",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ResumeResponType",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

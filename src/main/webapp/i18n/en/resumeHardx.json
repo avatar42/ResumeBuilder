@@ -1,0 +1,25 @@
+{
+  "resumeApp": {
+    "resumeHardx": {
+      "home": {
+        "title": "Resume Hardxes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Resume Hardx",
+        "createOrEditLabel": "Create or edit a Resume Hardx",
+        "notFound": "No Resume Hardxes found"
+      },
+      "created": "A new Resume Hardx is created with identifier {{ param }}",
+      "updated": "A Resume Hardx is updated with identifier {{ param }}",
+      "deleted": "A Resume Hardx is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Resume Hardx {{ id }}?"
+      },
+      "detail": {
+        "title": "Resume Hardx"
+      },
+      "id": "ID",
+      "hardwareId": "Hardware Id",
+      "jobId": "Job Id"
+    }
+  }
+}

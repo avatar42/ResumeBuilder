@@ -6,11 +6,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dea42.resume</groupId>
-    <artifactId>resume-builder</artifactId>
+    <artifactId>resume</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Resume Builder</name>
-    <description>Description for ResumeBuilder</description>
+    <name>Resume</name>
+    <description>Description for resume</description>
 
     <repositories>
         <!-- jhipster-needle-maven-repository -->
@@ -34,7 +34,7 @@
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <start-class>com.dea42.resume.ResumeBuilderApp</start-class>
+        <start-class>com.dea42.resume.ResumeApp</start-class>
         <argLine>-Djava.security.egd=file:/dev/./urandom -Xmx512m</argLine>
         <m2e.apt.activation>jdt_apt</m2e.apt.activation>
         <run.addResources>false</run.addResources>
@@ -281,10 +281,6 @@
             <scope>runtime</scope>
         </dependency>
         <!-- Spring Cloud -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-data</artifactId>
@@ -596,7 +592,7 @@
                             </platforms>
                         </from>
                         <to>
-                            <image>resumebuilder:latest</image>
+                            <image>resume:latest</image>
                         </to>
                         <container>
                             <entrypoint>
@@ -988,9 +984,9 @@
                                 <changeLogFile>${project.basedir}/src/main/resources/config/liquibase/master.xml</changeLogFile>
                                 <diffChangeLogFile>${project.basedir}/src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                                 <driver>org.h2.Driver</driver>
-                                <url>jdbc:h2:file:${project.build.directory}/h2db/db/resumebuilder</url>
+                                <url>jdbc:h2:file:${project.build.directory}/h2db/db/resume</url>
                                 <defaultSchemaName></defaultSchemaName>
-                                <username>ResumeBuilder</username>
+                                <username>resume</username>
                                 <password></password>
                                 <referenceUrl>hibernate:spring:com.dea42.resume.domain?dialect=org.hibernate.dialect.H2Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
                                 <verbose>true</verbose>
@@ -1140,22 +1136,6 @@
         </profile>
         <profile>
             <!--
-                Profile for tracing requests with Zipkin.
-            -->
-            <id>zipkin</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-starter-sleuth</artifactId>
-                </dependency>
-                <dependency>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-sleuth-zipkin</artifactId>
-                </dependency>
-            </dependencies>
-        </profile>
-        <profile>
-            <!--
                 Profile for applying IDE-specific configuration.
                 At the moment it configures MapStruct and Hibernate JPA Metamodel Generator, which you need when working
                 with DTOs and entity filtering.
@@ -1237,31 +1217,6 @@
                                     </pluginExecutions>
                                 </lifecycleMappingMetadata>
                             </configuration>
-                        </plugin>
-                    </plugins>
-                </pluginManagement>
-            </build>
-        </profile>
-        <profile>
-            <id>e2e</id>
-            <properties>
-                <profile.e2e>,e2e</profile.e2e>
-            </properties>
-            <build>
-                <finalName>e2e</finalName>
-                <pluginManagement>
-                    <plugins>
-                        <plugin>
-                            <groupId>org.springframework.boot</groupId>
-                            <artifactId>spring-boot-maven-plugin</artifactId>
-                            <executions>
-                                <execution>
-                                    <id>repackage</id>
-                                    <goals>
-                                        <goal>repackage</goal>
-                                    </goals>
-                                </execution>
-                            </executions>
                         </plugin>
                     </plugins>
                 </pluginManagement>

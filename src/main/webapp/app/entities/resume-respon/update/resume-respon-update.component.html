@@ -1,0 +1,107 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-resume-respon-heading"
+        data-cy="ResumeResponCreateUpdateHeading"
+        jhiTranslate="resumeApp.resumeRespon.home.createOrEditLabel"
+      >
+        Create or edit a Resume Respon
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeRespon.jobId" for="field_jobId">Job Id</label>
+          <input type="number" class="form-control" name="jobId" id="field_jobId" data-cy="jobId" formControlName="jobId" />
+          <div *ngIf="editForm.get('jobId')!.invalid && (editForm.get('jobId')!.dirty || editForm.get('jobId')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('jobId')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('jobId')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeRespon.responOrder" for="field_responOrder">Respon Order</label>
+          <input
+            type="number"
+            class="form-control"
+            name="responOrder"
+            id="field_responOrder"
+            data-cy="responOrder"
+            formControlName="responOrder"
+          />
+          <div *ngIf="editForm.get('responOrder')!.invalid && (editForm.get('responOrder')!.dirty || editForm.get('responOrder')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('responOrder')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('responOrder')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeRespon.responShow" for="field_responShow">Respon Show</label>
+          <input
+            type="number"
+            class="form-control"
+            name="responShow"
+            id="field_responShow"
+            data-cy="responShow"
+            formControlName="responShow"
+          />
+          <div *ngIf="editForm.get('responShow')!.invalid && (editForm.get('responShow')!.dirty || editForm.get('responShow')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('responShow')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('responShow')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

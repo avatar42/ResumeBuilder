@@ -1,0 +1,132 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-resume-hardware-heading"
+        data-cy="ResumeHardwareCreateUpdateHeading"
+        jhiTranslate="resumeApp.resumeHardware.home.createOrEditLabel"
+      >
+        Create or edit a Resume Hardware
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeHardware.repairCertified" for="field_repairCertified"
+            >Repair Certified</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="repairCertified"
+            id="field_repairCertified"
+            data-cy="repairCertified"
+            formControlName="repairCertified"
+          />
+          <div
+            *ngIf="
+              editForm.get('repairCertified')!.invalid &&
+              (editForm.get('repairCertified')!.dirty || editForm.get('repairCertified')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('repairCertified')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('repairCertified')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeHardware.showSum" for="field_showSum">Show Sum</label>
+          <input type="number" class="form-control" name="showSum" id="field_showSum" data-cy="showSum" formControlName="showSum" />
+          <div *ngIf="editForm.get('showSum')!.invalid && (editForm.get('showSum')!.dirty || editForm.get('showSum')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('showSum')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('showSum')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeHardware.hardwareName" for="field_hardwareName">Hardware Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="hardwareName"
+            id="field_hardwareName"
+            data-cy="hardwareName"
+            formControlName="hardwareName"
+          />
+          <div
+            *ngIf="editForm.get('hardwareName')!.invalid && (editForm.get('hardwareName')!.dirty || editForm.get('hardwareName')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('hardwareName')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeHardware.resumeHardx" for="field_resumeHardx">Resume Hardx</label>
+          <select class="form-control" id="field_resumeHardx" data-cy="resumeHardx" name="resumeHardx" formControlName="resumeHardx">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                resumeHardxOption.id === editForm.get('resumeHardx')!.value?.id ? editForm.get('resumeHardx')!.value : resumeHardxOption
+              "
+              *ngFor="let resumeHardxOption of resumeHardxesSharedCollection; trackBy: trackResumeHardxById"
+            >
+              {{ resumeHardxOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

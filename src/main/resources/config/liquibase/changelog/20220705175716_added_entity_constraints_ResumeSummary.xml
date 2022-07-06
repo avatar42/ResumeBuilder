@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity ResumeSummary.
+    -->
+    <changeSet id="20220705175716-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="resume_software_id"
+                                 baseTableName="resume_summary"
+                                 constraintName="fk_resume_summary__resume_software_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="resume_software"/>
+    </changeSet>
+</databaseChangeLog>

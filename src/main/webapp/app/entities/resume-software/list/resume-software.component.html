@@ -1,0 +1,96 @@
+<div>
+  <h2 id="page-heading" data-cy="ResumeSoftwareHeading">
+    <span jhiTranslate="resumeApp.resumeSoftware.home.title">Resume Softwares</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="resumeApp.resumeSoftware.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-resume-software"
+        [routerLink]="['/resume-software/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="resumeApp.resumeSoftware.home.createLabel"> Create a new Resume Software </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="resumeSoftwares?.length === 0">
+    <span jhiTranslate="resumeApp.resumeSoftware.home.notFound">No resumeSoftwares found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="resumeSoftwares && resumeSoftwares.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeSoftware.softwareName">Software Name</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeSoftware.softwareVer">Software Ver</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeSoftware.softwareCatId">Software Cat Id</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeSoftware.summarryCatId">Summarry Cat Id</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeSoftware.resumeSoftx">Resume Softx</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeSoftware.resumeSoftware">Resume Software</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let resumeSoftware of resumeSoftwares; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/resume-software', resumeSoftware.id, 'view']">{{ resumeSoftware.id }}</a>
+          </td>
+          <td>{{ resumeSoftware.softwareName }}</td>
+          <td>{{ resumeSoftware.softwareVer }}</td>
+          <td>{{ resumeSoftware.softwareCatId }}</td>
+          <td>{{ resumeSoftware.summarryCatId }}</td>
+          <td>
+            <div *ngIf="resumeSoftware.resumeSoftx">
+              <a [routerLink]="['/resume-softx', resumeSoftware.resumeSoftx?.id, 'view']">{{ resumeSoftware.resumeSoftx?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="resumeSoftware.resumeSoftware">
+              <a [routerLink]="['/resume-software', resumeSoftware.resumeSoftware?.id, 'view']">{{ resumeSoftware.resumeSoftware?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/resume-software', resumeSoftware.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/resume-software', resumeSoftware.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(resumeSoftware)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

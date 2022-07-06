@@ -1,0 +1,28 @@
+{
+  "applications": ["resume"],
+  "changelogDate": "20220705175711",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "resume_hardx",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ResumeHardx",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "resumeHardware",
+      "otherEntityRelationshipName": "resumeHardx",
+      "relationshipName": "hardwareId",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "resumeJobs",
+      "otherEntityRelationshipName": "resumeHardx",
+      "relationshipName": "jobId",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

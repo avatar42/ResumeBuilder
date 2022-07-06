@@ -1,0 +1,28 @@
+{
+  "applications": ["resume"],
+  "changelogDate": "20220705175715",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "resume_softx",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ResumeSoftx",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "resumeJobs",
+      "otherEntityRelationshipName": "resumeSoftx",
+      "relationshipName": "jobId",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "resumeSoftware",
+      "otherEntityRelationshipName": "resumeSoftx",
+      "relationshipName": "softwareId",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

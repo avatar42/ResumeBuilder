@@ -1,6 +1,6 @@
 package com.dea42.resume;
 
-import com.dea42.resume.ResumeBuilderApp;
+import com.dea42.resume.ResumeApp;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -12,6 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@SpringBootTest(classes = ResumeBuilderApp.class)
+@SpringBootTest(classes = ResumeApp.class)
 public @interface IntegrationTest {
 }

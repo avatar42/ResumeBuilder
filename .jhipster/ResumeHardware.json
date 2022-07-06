@@ -1,0 +1,38 @@
+{
+  "applications": ["resume"],
+  "changelogDate": "20220705175710",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "resume_hardware",
+  "fields": [
+    {
+      "fieldName": "repairCertified",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "showSum",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "hardwareName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ResumeHardware",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "resumeHardx",
+      "otherEntityRelationshipName": "hardwareId",
+      "relationshipName": "resumeHardx",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

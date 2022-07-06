@@ -1,0 +1,271 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-resume-jobs-heading" data-cy="ResumeJobsCreateUpdateHeading" jhiTranslate="resumeApp.resumeJobs.home.createOrEditLabel">
+        Create or edit a Resume Jobs
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.startDate" for="field_startDate">Start Date</label>
+          <div class="input-group">
+            <input
+              id="field_startDate"
+              data-cy="startDate"
+              type="text"
+              class="form-control"
+              name="startDate"
+              ngbDatepicker
+              #startDateDp="ngbDatepicker"
+              formControlName="startDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="startDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+          <div *ngIf="editForm.get('startDate')!.invalid && (editForm.get('startDate')!.dirty || editForm.get('startDate')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('startDate')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.endDate" for="field_endDate">End Date</label>
+          <div class="input-group">
+            <input
+              id="field_endDate"
+              data-cy="endDate"
+              type="text"
+              class="form-control"
+              name="endDate"
+              ngbDatepicker
+              #endDateDp="ngbDatepicker"
+              formControlName="endDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="endDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.company" for="field_company">Company</label>
+          <input type="text" class="form-control" name="company" id="field_company" data-cy="company" formControlName="company" />
+          <div *ngIf="editForm.get('company')!.invalid && (editForm.get('company')!.dirty || editForm.get('company')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('company')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.workStreet" for="field_workStreet">Work Street</label>
+          <input
+            type="text"
+            class="form-control"
+            name="workStreet"
+            id="field_workStreet"
+            data-cy="workStreet"
+            formControlName="workStreet"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.location" for="field_location">Location</label>
+          <input type="text" class="form-control" name="location" id="field_location" data-cy="location" formControlName="location" />
+          <div *ngIf="editForm.get('location')!.invalid && (editForm.get('location')!.dirty || editForm.get('location')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('location')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.workZip" for="field_workZip">Work Zip</label>
+          <input type="text" class="form-control" name="workZip" id="field_workZip" data-cy="workZip" formControlName="workZip" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.title" for="field_title">Title</label>
+          <input type="text" class="form-control" name="title" id="field_title" data-cy="title" formControlName="title" />
+          <div *ngIf="editForm.get('title')!.invalid && (editForm.get('title')!.dirty || editForm.get('title')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('title')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.months" for="field_months">Months</label>
+          <input type="number" class="form-control" name="months" id="field_months" data-cy="months" formControlName="months" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.contract" for="field_contract">Contract</label>
+          <input type="number" class="form-control" name="contract" id="field_contract" data-cy="contract" formControlName="contract" />
+          <div *ngIf="editForm.get('contract')!.invalid && (editForm.get('contract')!.dirty || editForm.get('contract')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('contract')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('contract')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.agency" for="field_agency">Agency</label>
+          <input type="text" class="form-control" name="agency" id="field_agency" data-cy="agency" formControlName="agency" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.mgr" for="field_mgr">Mgr</label>
+          <input type="text" class="form-control" name="mgr" id="field_mgr" data-cy="mgr" formControlName="mgr" />
+          <div *ngIf="editForm.get('mgr')!.invalid && (editForm.get('mgr')!.dirty || editForm.get('mgr')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('mgr')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.mgrPhone" for="field_mgrPhone">Mgr Phone</label>
+          <input type="text" class="form-control" name="mgrPhone" id="field_mgrPhone" data-cy="mgrPhone" formControlName="mgrPhone" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.pay" for="field_pay">Pay</label>
+          <input type="text" class="form-control" name="pay" id="field_pay" data-cy="pay" formControlName="pay" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.corpAddr" for="field_corpAddr">Corp Addr</label>
+          <input type="text" class="form-control" name="corpAddr" id="field_corpAddr" data-cy="corpAddr" formControlName="corpAddr" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.corpPhone" for="field_corpPhone">Corp Phone</label>
+          <input type="text" class="form-control" name="corpPhone" id="field_corpPhone" data-cy="corpPhone" formControlName="corpPhone" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.agencyAddr" for="field_agencyAddr">Agency Addr</label>
+          <input
+            type="text"
+            class="form-control"
+            name="agencyAddr"
+            id="field_agencyAddr"
+            data-cy="agencyAddr"
+            formControlName="agencyAddr"
+          />
+          <div *ngIf="editForm.get('agencyAddr')!.invalid && (editForm.get('agencyAddr')!.dirty || editForm.get('agencyAddr')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('agencyAddr')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.agencyPhone" for="field_agencyPhone">Agency Phone</label>
+          <input
+            type="text"
+            class="form-control"
+            name="agencyPhone"
+            id="field_agencyPhone"
+            data-cy="agencyPhone"
+            formControlName="agencyPhone"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.resumeHardx" for="field_resumeHardx">Resume Hardx</label>
+          <select class="form-control" id="field_resumeHardx" data-cy="resumeHardx" name="resumeHardx" formControlName="resumeHardx">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                resumeHardxOption.id === editForm.get('resumeHardx')!.value?.id ? editForm.get('resumeHardx')!.value : resumeHardxOption
+              "
+              *ngFor="let resumeHardxOption of resumeHardxesSharedCollection; trackBy: trackResumeHardxById"
+            >
+              {{ resumeHardxOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.resumeSoftx" for="field_resumeSoftx">Resume Softx</label>
+          <select class="form-control" id="field_resumeSoftx" data-cy="resumeSoftx" name="resumeSoftx" formControlName="resumeSoftx">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                resumeSoftxOption.id === editForm.get('resumeSoftx')!.value?.id ? editForm.get('resumeSoftx')!.value : resumeSoftxOption
+              "
+              *ngFor="let resumeSoftxOption of resumeSoftxesSharedCollection; trackBy: trackResumeSoftxById"
+            >
+              {{ resumeSoftxOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeJobs.resumeRespon" for="field_resumeRespon">Resume Respon</label>
+          <select class="form-control" id="field_resumeRespon" data-cy="resumeRespon" name="resumeRespon" formControlName="resumeRespon">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                resumeResponOption.id === editForm.get('resumeRespon')!.value?.id ? editForm.get('resumeRespon')!.value : resumeResponOption
+              "
+              *ngFor="let resumeResponOption of resumeResponsSharedCollection; trackBy: trackResumeResponById"
+            >
+              {{ resumeResponOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

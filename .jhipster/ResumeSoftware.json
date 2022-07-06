@@ -1,0 +1,61 @@
+{
+  "applications": ["resume"],
+  "changelogDate": "20220705175714",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "resume_software",
+  "fields": [
+    {
+      "fieldName": "softwareName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "softwareVer",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "softwareCatId",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "summarryCatId",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ResumeSoftware",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "resumeSoftware",
+      "otherEntityRelationshipName": "resumeSoftware",
+      "relationshipName": "softwareCatId",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "resumeSummary",
+      "otherEntityRelationshipName": "resumeSoftware",
+      "relationshipName": "summarryCatId",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "resumeSoftx",
+      "otherEntityRelationshipName": "softwareId",
+      "relationshipName": "resumeSoftx",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "resumeSoftware",
+      "otherEntityRelationshipName": "softwareCatId",
+      "relationshipName": "resumeSoftware",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

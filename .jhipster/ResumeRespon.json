@@ -1,0 +1,38 @@
+{
+  "applications": ["resume"],
+  "changelogDate": "20220705175717",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "resume_respon",
+  "fields": [
+    {
+      "fieldName": "jobId",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "responOrder",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "responShow",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ResumeRespon",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "resumeJobs",
+      "otherEntityRelationshipName": "resumeRespon",
+      "relationshipName": "jobId",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

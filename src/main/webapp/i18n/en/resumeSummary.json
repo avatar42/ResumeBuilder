@@ -1,0 +1,26 @@
+{
+  "resumeApp": {
+    "resumeSummary": {
+      "home": {
+        "title": "Resume Summaries",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Resume Summary",
+        "createOrEditLabel": "Create or edit a Resume Summary",
+        "notFound": "No Resume Summaries found"
+      },
+      "created": "A new Resume Summary is created with identifier {{ param }}",
+      "updated": "A Resume Summary is updated with identifier {{ param }}",
+      "deleted": "A Resume Summary is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Resume Summary {{ id }}?"
+      },
+      "detail": {
+        "title": "Resume Summary"
+      },
+      "id": "ID",
+      "summaryName": "Summary Name",
+      "summaryOrder": "Summary Order",
+      "resumeSoftware": "Resume Software"
+    }
+  }
+}

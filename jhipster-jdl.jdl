@@ -1,0 +1,78 @@
+
+
+application {
+  config {
+    baseName resume,
+    applicationType monolith,
+    packageName com.dea42.resume,
+    authenticationType jwt,
+    prodDatabaseType mysql,
+    clientFramework angular
+  }
+  entities *
+}
+
+entity ResumeHardware {
+  repairCertified Integer required 
+  showSum Integer required 
+  hardwareName String required
+}
+
+entity ResumeHardx {
+}
+
+entity ResumeJobs {
+  startDate LocalDate required
+  endDate LocalDate 
+  company String required 
+  workStreet String 
+  location String required 
+  workZip String 
+  title String required 
+  months Double 
+  contract Integer required 
+  agency String 
+  mgr String required 
+  mgrPhone String 
+  pay String 
+  corpAddr String 
+  corpPhone String 
+  agencyAddr String required
+  agencyPhone String 
+}
+
+entity ResumeResponType {
+  description String
+}
+
+entity ResumeSoftware {
+  softwareName String required 
+  softwareVer String required 
+  softwareCatId Integer required 
+  summarryCatId Integer required 
+}
+
+entity ResumeSoftx {
+}
+
+entity ResumeSummary {
+  summaryName String required 
+  summaryOrder Integer required 
+}
+
+entity ResumeRespon {
+  jobId Integer required 
+  responOrder Integer required 
+  responShow Integer required 
+}
+relationship OneToMany {
+  ResumeHardx{HardwareId} to ResumeHardware
+  ResumeHardx{JobId} to ResumeJobs
+  ResumeSoftx{JobId} to ResumeJobs
+  ResumeSoftx{SoftwareId} to ResumeSoftware
+  ResumeRespon{JobId} to ResumeJobs
+  ResumeSoftware{SoftwareCatId} to ResumeSoftware
+  ResumeSoftware{SummarryCatId} to ResumeSummary
+}
+
+    

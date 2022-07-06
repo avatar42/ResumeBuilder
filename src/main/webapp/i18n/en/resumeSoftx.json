@@ -1,0 +1,25 @@
+{
+  "resumeApp": {
+    "resumeSoftx": {
+      "home": {
+        "title": "Resume Softxes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Resume Softx",
+        "createOrEditLabel": "Create or edit a Resume Softx",
+        "notFound": "No Resume Softxes found"
+      },
+      "created": "A new Resume Softx is created with identifier {{ param }}",
+      "updated": "A Resume Softx is updated with identifier {{ param }}",
+      "deleted": "A Resume Softx is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Resume Softx {{ id }}?"
+      },
+      "detail": {
+        "title": "Resume Softx"
+      },
+      "id": "ID",
+      "jobId": "Job Id",
+      "softwareId": "Software Id"
+    }
+  }
+}

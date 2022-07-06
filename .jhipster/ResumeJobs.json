@@ -1,0 +1,110 @@
+{
+  "applications": ["resume"],
+  "changelogDate": "20220705175712",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "resume_jobs",
+  "fields": [
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "company",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "workStreet",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "workZip",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "months",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "contract",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "agency",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mgr",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "mgrPhone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pay",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "corpAddr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "corpPhone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "agencyAddr",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "agencyPhone",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ResumeJobs",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "resumeHardx",
+      "otherEntityRelationshipName": "jobId",
+      "relationshipName": "resumeHardx",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "resumeSoftx",
+      "otherEntityRelationshipName": "jobId",
+      "relationshipName": "resumeSoftx",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "resumeRespon",
+      "otherEntityRelationshipName": "jobId",
+      "relationshipName": "resumeRespon",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

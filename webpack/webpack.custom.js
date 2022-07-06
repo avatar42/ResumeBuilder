@@ -26,7 +26,7 @@ module.exports = async (config, options, targetOptions) => {
         extensions: ['js', 'ts'],
       }),
       new WebpackNotifierPlugin({
-        title: 'Resume Builder',
+        title: 'Resume',
         contentImage: path.join(__dirname, 'logo-jhipster.png'),
       })
     );
@@ -120,8 +120,6 @@ module.exports = async (config, options, targetOptions) => {
       output: {
         groupBy: [
           { pattern: './src/main/webapp/i18n/en/*.json', fileName: './i18n/en.json' },
-          { pattern: './src/main/webapp/i18n/fr/*.json', fileName: './i18n/fr.json' },
-          { pattern: './src/main/webapp/i18n/de/*.json', fileName: './i18n/de.json' },
           // jhipster-needle-i18n-language-webpack - JHipster will add/remove languages in this array
         ],
       },
@@ -129,29 +127,7 @@ module.exports = async (config, options, targetOptions) => {
   );
 
   config = merge(
-    config,
-    targetOptions.configuration === 'instrumenter'
-      ? {
-          module: {
-            rules: [
-              {
-                test: /\.(js|ts)$/,
-                use: [
-                  {
-                    loader: 'babel-loader',
-                    options: {
-                      plugins: ['istanbul'],
-                    },
-                  },
-                ],
-                enforce: 'post',
-                include: path.resolve(__dirname, '../src/main/webapp/'),
-                exclude: [/\.(e2e|spec)\.ts$/, /node_modules/, /(ngfactory|ngstyle)\.js/],
-              },
-            ],
-          },
-        }
-      : {}
+    config
     // jhipster-needle-add-webpack-config - JHipster will add custom config
   );
 

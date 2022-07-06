@@ -15,7 +15,19 @@
     <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220705175710_added_entity_ResumeHardware.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220705175711_added_entity_ResumeHardx.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220705175712_added_entity_ResumeJobs.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220705175713_added_entity_ResumeResponType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220705175714_added_entity_ResumeSoftware.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220705175715_added_entity_ResumeSoftx.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220705175716_added_entity_ResumeSummary.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220705175717_added_entity_ResumeRespon.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20220705175710_added_entity_constraints_ResumeHardware.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220705175712_added_entity_constraints_ResumeJobs.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220705175714_added_entity_constraints_ResumeSoftware.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220705175716_added_entity_constraints_ResumeSummary.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

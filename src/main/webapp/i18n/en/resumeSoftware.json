@@ -1,0 +1,31 @@
+{
+  "resumeApp": {
+    "resumeSoftware": {
+      "home": {
+        "title": "Resume Softwares",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Resume Software",
+        "createOrEditLabel": "Create or edit a Resume Software",
+        "notFound": "No Resume Softwares found"
+      },
+      "created": "A new Resume Software is created with identifier {{ param }}",
+      "updated": "A Resume Software is updated with identifier {{ param }}",
+      "deleted": "A Resume Software is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Resume Software {{ id }}?"
+      },
+      "detail": {
+        "title": "Resume Software"
+      },
+      "id": "ID",
+      "softwareName": "Software Name",
+      "softwareVer": "Software Ver",
+      "softwareCatId": "Software Cat Id",
+      "summarryCatId": "Summarry Cat Id",
+      "softwareCatId": "Software Cat Id",
+      "summarryCatId": "Summarry Cat Id",
+      "resumeSoftx": "Resume Softx",
+      "resumeSoftware": "Resume Software"
+    }
+  }
+}

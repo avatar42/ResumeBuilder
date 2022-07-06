@@ -1,0 +1,128 @@
+<div>
+  <h2 id="page-heading" data-cy="ResumeJobsHeading">
+    <span jhiTranslate="resumeApp.resumeJobs.home.title">Resume Jobs</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="resumeApp.resumeJobs.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-resume-jobs"
+        [routerLink]="['/resume-jobs/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="resumeApp.resumeJobs.home.createLabel"> Create a new Resume Jobs </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="resumeJobs?.length === 0">
+    <span jhiTranslate="resumeApp.resumeJobs.home.notFound">No resumeJobs found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="resumeJobs && resumeJobs.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.startDate">Start Date</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.endDate">End Date</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.company">Company</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.workStreet">Work Street</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.location">Location</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.workZip">Work Zip</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.title">Title</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.months">Months</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.contract">Contract</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.agency">Agency</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.mgr">Mgr</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.mgrPhone">Mgr Phone</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.pay">Pay</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.corpAddr">Corp Addr</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.corpPhone">Corp Phone</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.agencyAddr">Agency Addr</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.agencyPhone">Agency Phone</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.resumeHardx">Resume Hardx</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.resumeSoftx">Resume Softx</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resumeJobs.resumeRespon">Resume Respon</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let resumeJobs of resumeJobs; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/resume-jobs', resumeJobs.id, 'view']">{{ resumeJobs.id }}</a>
+          </td>
+          <td>{{ resumeJobs.startDate | formatMediumDate }}</td>
+          <td>{{ resumeJobs.endDate | formatMediumDate }}</td>
+          <td>{{ resumeJobs.company }}</td>
+          <td>{{ resumeJobs.workStreet }}</td>
+          <td>{{ resumeJobs.location }}</td>
+          <td>{{ resumeJobs.workZip }}</td>
+          <td>{{ resumeJobs.title }}</td>
+          <td>{{ resumeJobs.months }}</td>
+          <td>{{ resumeJobs.contract }}</td>
+          <td>{{ resumeJobs.agency }}</td>
+          <td>{{ resumeJobs.mgr }}</td>
+          <td>{{ resumeJobs.mgrPhone }}</td>
+          <td>{{ resumeJobs.pay }}</td>
+          <td>{{ resumeJobs.corpAddr }}</td>
+          <td>{{ resumeJobs.corpPhone }}</td>
+          <td>{{ resumeJobs.agencyAddr }}</td>
+          <td>{{ resumeJobs.agencyPhone }}</td>
+          <td>
+            <div *ngIf="resumeJobs.resumeHardx">
+              <a [routerLink]="['/resume-hardx', resumeJobs.resumeHardx?.id, 'view']">{{ resumeJobs.resumeHardx?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="resumeJobs.resumeSoftx">
+              <a [routerLink]="['/resume-softx', resumeJobs.resumeSoftx?.id, 'view']">{{ resumeJobs.resumeSoftx?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="resumeJobs.resumeRespon">
+              <a [routerLink]="['/resume-respon', resumeJobs.resumeRespon?.id, 'view']">{{ resumeJobs.resumeRespon?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/resume-jobs', resumeJobs.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/resume-jobs', resumeJobs.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(resumeJobs)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

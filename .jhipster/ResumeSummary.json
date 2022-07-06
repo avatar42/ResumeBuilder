@@ -1,0 +1,33 @@
+{
+  "applications": ["resume"],
+  "changelogDate": "20220705175716",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "resume_summary",
+  "fields": [
+    {
+      "fieldName": "summaryName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "summaryOrder",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ResumeSummary",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "resumeSoftware",
+      "otherEntityRelationshipName": "summarryCatId",
+      "relationshipName": "resumeSoftware",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

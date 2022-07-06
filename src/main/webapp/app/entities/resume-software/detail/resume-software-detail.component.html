@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="resumeSoftware">
+      <h2 data-cy="resumeSoftwareDetailsHeading"><span jhiTranslate="resumeApp.resumeSoftware.detail.title">Resume Software</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ resumeSoftware.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeSoftware.softwareName">Software Name</span></dt>
+        <dd>
+          <span>{{ resumeSoftware.softwareName }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeSoftware.softwareVer">Software Ver</span></dt>
+        <dd>
+          <span>{{ resumeSoftware.softwareVer }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeSoftware.softwareCatId">Software Cat Id</span></dt>
+        <dd>
+          <span>{{ resumeSoftware.softwareCatId }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeSoftware.summarryCatId">Summarry Cat Id</span></dt>
+        <dd>
+          <span>{{ resumeSoftware.summarryCatId }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeSoftware.resumeSoftx">Resume Softx</span></dt>
+        <dd>
+          <div *ngIf="resumeSoftware.resumeSoftx">
+            <a [routerLink]="['/resume-softx', resumeSoftware.resumeSoftx?.id, 'view']">{{ resumeSoftware.resumeSoftx?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeSoftware.resumeSoftware">Resume Software</span></dt>
+        <dd>
+          <div *ngIf="resumeSoftware.resumeSoftware">
+            <a [routerLink]="['/resume-software', resumeSoftware.resumeSoftware?.id, 'view']">{{ resumeSoftware.resumeSoftware?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/resume-software', resumeSoftware.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

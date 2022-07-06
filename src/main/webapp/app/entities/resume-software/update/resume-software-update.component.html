@@ -1,0 +1,186 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-resume-software-heading"
+        data-cy="ResumeSoftwareCreateUpdateHeading"
+        jhiTranslate="resumeApp.resumeSoftware.home.createOrEditLabel"
+      >
+        Create or edit a Resume Software
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeSoftware.softwareName" for="field_softwareName">Software Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="softwareName"
+            id="field_softwareName"
+            data-cy="softwareName"
+            formControlName="softwareName"
+          />
+          <div
+            *ngIf="editForm.get('softwareName')!.invalid && (editForm.get('softwareName')!.dirty || editForm.get('softwareName')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('softwareName')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeSoftware.softwareVer" for="field_softwareVer">Software Ver</label>
+          <input
+            type="text"
+            class="form-control"
+            name="softwareVer"
+            id="field_softwareVer"
+            data-cy="softwareVer"
+            formControlName="softwareVer"
+          />
+          <div *ngIf="editForm.get('softwareVer')!.invalid && (editForm.get('softwareVer')!.dirty || editForm.get('softwareVer')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('softwareVer')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeSoftware.softwareCatId" for="field_softwareCatId">Software Cat Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="softwareCatId"
+            id="field_softwareCatId"
+            data-cy="softwareCatId"
+            formControlName="softwareCatId"
+          />
+          <div
+            *ngIf="
+              editForm.get('softwareCatId')!.invalid && (editForm.get('softwareCatId')!.dirty || editForm.get('softwareCatId')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('softwareCatId')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('softwareCatId')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeSoftware.summarryCatId" for="field_summarryCatId">Summarry Cat Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="summarryCatId"
+            id="field_summarryCatId"
+            data-cy="summarryCatId"
+            formControlName="summarryCatId"
+          />
+          <div
+            *ngIf="
+              editForm.get('summarryCatId')!.invalid && (editForm.get('summarryCatId')!.dirty || editForm.get('summarryCatId')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('summarryCatId')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('summarryCatId')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeSoftware.resumeSoftx" for="field_resumeSoftx">Resume Softx</label>
+          <select class="form-control" id="field_resumeSoftx" data-cy="resumeSoftx" name="resumeSoftx" formControlName="resumeSoftx">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                resumeSoftxOption.id === editForm.get('resumeSoftx')!.value?.id ? editForm.get('resumeSoftx')!.value : resumeSoftxOption
+              "
+              *ngFor="let resumeSoftxOption of resumeSoftxesSharedCollection; trackBy: trackResumeSoftxById"
+            >
+              {{ resumeSoftxOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resumeSoftware.resumeSoftware" for="field_resumeSoftware"
+            >Resume Software</label
+          >
+          <select
+            class="form-control"
+            id="field_resumeSoftware"
+            data-cy="resumeSoftware"
+            name="resumeSoftware"
+            formControlName="resumeSoftware"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                resumeSoftwareOption.id === editForm.get('resumeSoftware')!.value?.id
+                  ? editForm.get('resumeSoftware')!.value
+                  : resumeSoftwareOption
+              "
+              *ngFor="let resumeSoftwareOption of resumeSoftwaresSharedCollection; trackBy: trackResumeSoftwareById"
+            >
+              {{ resumeSoftwareOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

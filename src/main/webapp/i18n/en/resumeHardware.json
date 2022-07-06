@@ -1,0 +1,27 @@
+{
+  "resumeApp": {
+    "resumeHardware": {
+      "home": {
+        "title": "Resume Hardwares",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Resume Hardware",
+        "createOrEditLabel": "Create or edit a Resume Hardware",
+        "notFound": "No Resume Hardwares found"
+      },
+      "created": "A new Resume Hardware is created with identifier {{ param }}",
+      "updated": "A Resume Hardware is updated with identifier {{ param }}",
+      "deleted": "A Resume Hardware is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Resume Hardware {{ id }}?"
+      },
+      "detail": {
+        "title": "Resume Hardware"
+      },
+      "id": "ID",
+      "repairCertified": "Repair Certified",
+      "showSum": "Show Sum",
+      "hardwareName": "Hardware Name",
+      "resumeHardx": "Resume Hardx"
+    }
+  }
+}

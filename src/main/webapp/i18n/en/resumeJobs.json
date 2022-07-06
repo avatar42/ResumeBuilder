@@ -1,0 +1,43 @@
+{
+  "resumeApp": {
+    "resumeJobs": {
+      "home": {
+        "title": "Resume Jobs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Resume Jobs",
+        "createOrEditLabel": "Create or edit a Resume Jobs",
+        "notFound": "No Resume Jobs found"
+      },
+      "created": "A new Resume Jobs is created with identifier {{ param }}",
+      "updated": "A Resume Jobs is updated with identifier {{ param }}",
+      "deleted": "A Resume Jobs is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Resume Jobs {{ id }}?"
+      },
+      "detail": {
+        "title": "Resume Jobs"
+      },
+      "id": "ID",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "company": "Company",
+      "workStreet": "Work Street",
+      "location": "Location",
+      "workZip": "Work Zip",
+      "title": "Title",
+      "months": "Months",
+      "contract": "Contract",
+      "agency": "Agency",
+      "mgr": "Mgr",
+      "mgrPhone": "Mgr Phone",
+      "pay": "Pay",
+      "corpAddr": "Corp Addr",
+      "corpPhone": "Corp Phone",
+      "agencyAddr": "Agency Addr",
+      "agencyPhone": "Agency Phone",
+      "resumeHardx": "Resume Hardx",
+      "resumeSoftx": "Resume Softx",
+      "resumeRespon": "Resume Respon"
+    }
+  }
+}

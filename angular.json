@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "resume-builder": {
+    "resume": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -69,23 +69,22 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
-            },
-            "instrumenter": {}
+            }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "resume-builder:build:development",
+            "browserTarget": "resume:build:development",
             "port": 4200
           },
           "configurations": {
             "production": {
-              "browserTarget": "resume-builder:build:production"
+              "browserTarget": "resume:build:production"
             },
             "development": {
-              "browserTarget": "resume-builder:build:development"
+              "browserTarget": "resume:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -99,7 +98,7 @@
       }
     }
   },
-  "defaultProject": "resume-builder",
+  "defaultProject": "resume",
   "cli": {
     "cache": {
       "enabled": true,

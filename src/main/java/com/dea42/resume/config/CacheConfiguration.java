@@ -48,6 +48,21 @@ public class CacheConfiguration {
             createCache(cm, com.dea42.resume.domain.User.class.getName());
             createCache(cm, com.dea42.resume.domain.Authority.class.getName());
             createCache(cm, com.dea42.resume.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.dea42.resume.domain.ResumeHardware.class.getName());
+            createCache(cm, com.dea42.resume.domain.ResumeHardx.class.getName());
+            createCache(cm, com.dea42.resume.domain.ResumeHardx.class.getName() + ".hardwareIds");
+            createCache(cm, com.dea42.resume.domain.ResumeHardx.class.getName() + ".jobIds");
+            createCache(cm, com.dea42.resume.domain.ResumeJobs.class.getName());
+            createCache(cm, com.dea42.resume.domain.ResumeResponType.class.getName());
+            createCache(cm, com.dea42.resume.domain.ResumeSoftware.class.getName());
+            createCache(cm, com.dea42.resume.domain.ResumeSoftware.class.getName() + ".softwareCatIds");
+            createCache(cm, com.dea42.resume.domain.ResumeSoftware.class.getName() + ".summarryCatIds");
+            createCache(cm, com.dea42.resume.domain.ResumeSoftx.class.getName());
+            createCache(cm, com.dea42.resume.domain.ResumeSoftx.class.getName() + ".jobIds");
+            createCache(cm, com.dea42.resume.domain.ResumeSoftx.class.getName() + ".softwareIds");
+            createCache(cm, com.dea42.resume.domain.ResumeSummary.class.getName());
+            createCache(cm, com.dea42.resume.domain.ResumeRespon.class.getName());
+            createCache(cm, com.dea42.resume.domain.ResumeRespon.class.getName() + ".jobIds");
             // jhipster-needle-ehcache-add-entry
         };
     }

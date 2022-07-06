@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="resumeHardware">
+      <h2 data-cy="resumeHardwareDetailsHeading"><span jhiTranslate="resumeApp.resumeHardware.detail.title">Resume Hardware</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ resumeHardware.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeHardware.repairCertified">Repair Certified</span></dt>
+        <dd>
+          <span>{{ resumeHardware.repairCertified }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeHardware.showSum">Show Sum</span></dt>
+        <dd>
+          <span>{{ resumeHardware.showSum }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeHardware.hardwareName">Hardware Name</span></dt>
+        <dd>
+          <span>{{ resumeHardware.hardwareName }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeHardware.resumeHardx">Resume Hardx</span></dt>
+        <dd>
+          <div *ngIf="resumeHardware.resumeHardx">
+            <a [routerLink]="['/resume-hardx', resumeHardware.resumeHardx?.id, 'view']">{{ resumeHardware.resumeHardx?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/resume-hardware', resumeHardware.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

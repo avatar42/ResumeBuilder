@@ -1,15 +1,10 @@
-# ResumeBuilder
-
-## Base generation
+# Resume Builder
 
 This application was generated using JHipster 7.8.1, you can find documentation and help at [https://www.jhipster.tech](https://www.jhipster.tech).
 
 ### Steps
 
-1. Install JHipster **npm install -g generator-jhipster@7**
-
-And or check version with **jhipster --version**
-
+1. Install JHipster **npm install -g generator-jhipster@7** and or check version with **jhipster --version**
 2. Run **jhipster** and follow instructions on screen taking these options:
 
    - Which _type_ of application would you like to create? **Monolithic application (recommended for simple projects)**
@@ -36,8 +31,11 @@ And or check version with **jhipster --version**
    - Would you like to generate code coverage for Cypress tests? **[Experimental] Yes**
 
 3. npm audit fix
-
 4. Fix missing **browser-sync-client/dist/index.min.js** by copying **browser-sync-client/dist/index.js** to it.
+5. Model your entities with JDL Studio and download the resulting jhipster-jdl.jdl file
+   - Make sure options in **application config** of the idl match the option taken above from above
+6. Generate your entities with **jhipster jdl jhipster-jdl.jdl**. Take the 'a' option to overwrite files
+7. Compare package.json to the version before the above step and add back in any lost dependencies.
 
 ## Project Structure
 

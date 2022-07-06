@@ -1,0 +1,114 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="resumeJobs">
+      <h2 data-cy="resumeJobsDetailsHeading"><span jhiTranslate="resumeApp.resumeJobs.detail.title">Resume Jobs</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ resumeJobs.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.startDate">Start Date</span></dt>
+        <dd>
+          <span>{{ resumeJobs.startDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ resumeJobs.endDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.company">Company</span></dt>
+        <dd>
+          <span>{{ resumeJobs.company }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.workStreet">Work Street</span></dt>
+        <dd>
+          <span>{{ resumeJobs.workStreet }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.location">Location</span></dt>
+        <dd>
+          <span>{{ resumeJobs.location }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.workZip">Work Zip</span></dt>
+        <dd>
+          <span>{{ resumeJobs.workZip }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.title">Title</span></dt>
+        <dd>
+          <span>{{ resumeJobs.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.months">Months</span></dt>
+        <dd>
+          <span>{{ resumeJobs.months }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.contract">Contract</span></dt>
+        <dd>
+          <span>{{ resumeJobs.contract }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.agency">Agency</span></dt>
+        <dd>
+          <span>{{ resumeJobs.agency }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.mgr">Mgr</span></dt>
+        <dd>
+          <span>{{ resumeJobs.mgr }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.mgrPhone">Mgr Phone</span></dt>
+        <dd>
+          <span>{{ resumeJobs.mgrPhone }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.pay">Pay</span></dt>
+        <dd>
+          <span>{{ resumeJobs.pay }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.corpAddr">Corp Addr</span></dt>
+        <dd>
+          <span>{{ resumeJobs.corpAddr }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.corpPhone">Corp Phone</span></dt>
+        <dd>
+          <span>{{ resumeJobs.corpPhone }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.agencyAddr">Agency Addr</span></dt>
+        <dd>
+          <span>{{ resumeJobs.agencyAddr }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.agencyPhone">Agency Phone</span></dt>
+        <dd>
+          <span>{{ resumeJobs.agencyPhone }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.resumeHardx">Resume Hardx</span></dt>
+        <dd>
+          <div *ngIf="resumeJobs.resumeHardx">
+            <a [routerLink]="['/resume-hardx', resumeJobs.resumeHardx?.id, 'view']">{{ resumeJobs.resumeHardx?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.resumeSoftx">Resume Softx</span></dt>
+        <dd>
+          <div *ngIf="resumeJobs.resumeSoftx">
+            <a [routerLink]="['/resume-softx', resumeJobs.resumeSoftx?.id, 'view']">{{ resumeJobs.resumeSoftx?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resumeJobs.resumeRespon">Resume Respon</span></dt>
+        <dd>
+          <div *ngIf="resumeJobs.resumeRespon">
+            <a [routerLink]="['/resume-respon', resumeJobs.resumeRespon?.id, 'view']">{{ resumeJobs.resumeRespon?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/resume-jobs', resumeJobs.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
